@@ -1,13 +1,10 @@
-machine:
-  services:
-    - docker
+version: 2
 jobs:
     build:
+      machine: true
       steps:
-        - run: 
-          - docker build -t test:latest .
-  deployment:
-    hub:
-      branch: master
-      commands:
-        - $DEPLOY
+        - checkout
+        - setup_remote_docker: 
+            docker_layer_caching: true 
+        - run: docker build -t company/app:$CIRCLE_BRANCH .
+        - run: $DEPLOY
