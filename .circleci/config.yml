@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     steps:
-      run: docker-compose up -d
+      - run: docker-compose up -d
 
 deployment:
   hub:
