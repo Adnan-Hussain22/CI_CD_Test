@@ -10,3 +10,4 @@ jobs:
             command: |
               docker login -u $DOCKER_USER -p $DOCKER_PASS
               docker push adnanrajput/ci-cd-test:latest
+              docker push adnanrajput/ci-cd-test:latest

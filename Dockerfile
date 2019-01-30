@@ -1,3 +1,4 @@
+# Only for the demo purpose
 FROM alpine
 
 WORKDIR /src
