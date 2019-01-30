@@ -1,12 +1,11 @@
 machine:
   services:
     - docker
-  jobs:
+jobs:
     build:
       steps:
         - run: 
           - docker build -t test:latest .
-
   deployment:
     hub:
       branch: master
