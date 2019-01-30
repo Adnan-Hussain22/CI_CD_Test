@@ -1,10 +1,9 @@
-version: 2
-jobs:
-  build:
-    docker:
-      image: alpine
-  steps:
-    - run: docker build -t ci-cd-test:latest .
+machine:
+  services:
+    - docker
+test: 
+  ovverride:
+    - docker build -t test:latest .
 
   deployment:
     hub:
