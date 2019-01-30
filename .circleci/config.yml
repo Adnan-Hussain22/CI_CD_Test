@@ -1,11 +1,18 @@
 version: 2
 jobs:
   build:
-    steps:
-      - run: docker-compose up -d
+    docker:
+      image: alpine
+  steps:
+    - checkout
+    - restore_cache:
+          key: deps1-{{ .Branch }}-{{ checksum "requirements.txt" }}
+    - run:
+         name: Build Docker image
+         command: docker build -t ci-cd-test:latest .
 
-deployment:
-  hub:
-    branch: master
-    commands:
-      - $DEPLOY
+  deployment:
+    hub:
+      branch: master
+      commands:
+        - $DEPLOY
