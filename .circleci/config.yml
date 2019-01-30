@@ -2,9 +2,7 @@ version: 2
 jobs:
   build:
     steps:
-      run: |
-      docker build -t ci-cd-test .
-      docker run -p 5001 -d ci-cd-test:latest
+      run: docker-compose up -d
 
 deployment:
   hub:
