@@ -1,6 +1,8 @@
-FROM node-starterkit
+FROM alpine
 
 WORKDIR /src
+
+RUN apk add --update nodejs nodejs-npm
 
 COPY package.json /src/package.json
 
