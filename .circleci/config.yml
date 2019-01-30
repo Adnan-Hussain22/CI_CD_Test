@@ -4,9 +4,7 @@ jobs:
     docker:
       image: alpine
   steps:
-    - run:
-         name: Build Docker image
-         command: docker build -t ci-cd-test:latest .
+    - run: docker build -t ci-cd-test:latest .
 
   deployment:
     hub:
