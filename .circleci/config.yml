@@ -4,6 +4,9 @@ jobs:
       machine: true 
       steps:
         - checkout
-        - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
         - run: docker build -t adnanrajput/ci-cd-test:latest .
-        - run: docker push adnanrajput/ci-cd-test:latest
+        - run:
+          name: Push to DockerHub
+          command: |
+            docker login -u $DOCKER_USER -p $DOCKER_PASS
+            docker push adnanrajput/ci-cd-test:latest
