@@ -4,7 +4,7 @@ jobs:
       machine: true 
       steps:
         - checkout
-        - run: docker build -t adnanrajput/ci-cd-test:latest .
+        - run: docker build -t adnanrajput/ci-cd-test:v1 .
         - run:
             name: Push to DockerHub
             command: |
