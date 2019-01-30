@@ -1,9 +1,11 @@
 machine:
   services:
     - docker
-test: 
-  ovverride:
-    - docker build -t test:latest .
+  jobs:
+    build:
+      steps:
+        - run: 
+          - docker build -t test:latest .
 
   deployment:
     hub:
